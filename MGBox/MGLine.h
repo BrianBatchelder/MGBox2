@@ -22,6 +22,7 @@ typedef enum {
 @property (nonatomic, assign) MGUnderlineType underlineType;
 @property (nonatomic, assign) MGSidePrecedence sidePrecedence;
 @property (nonatomic, assign) BOOL widenAsNeeded;
+@property (nonatomic, assign) BOOL adjustsFontSizeToFitWidth;
 @property (nonatomic, retain) UIFont *font;
 @property (nonatomic, retain) UIFont *rightFont;
 @property (nonatomic, retain) UIColor *textColor;

@@ -448,8 +448,13 @@
       ? NSLineBreakByTruncatingHead
       : NSLineBreakByTruncatingTail;
   label.textAlignment = align;
-  CGSize size = [label.text sizeWithFont:label.font];
-  label.size = CGSizeMake(size.width, self.height);
+    if (self.adjustsFontSizeToFitWidth) {
+        label.adjustsFontSizeToFitWidth = YES;
+        label.size = CGSizeMake(self.width, self.height);
+    } else {
+        CGSize size = [label.text sizeWithFont:label.font];
+        label.size = CGSizeMake(size.width, self.height);
+    }
   return label;
 }
 
