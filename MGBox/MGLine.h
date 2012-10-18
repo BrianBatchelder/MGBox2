@@ -27,6 +27,7 @@ typedef enum {
 @property (nonatomic, retain) UIFont *rightFont;
 @property (nonatomic, retain) UIColor *textColor;
 @property (nonatomic, retain) UIColor *textShadowColor;
+@property (nonatomic, assign) UIColor *underlineColor;
 @property (nonatomic, retain) CALayer *solidUnderline;
 @property (nonatomic, assign) CGFloat itemPadding;
 

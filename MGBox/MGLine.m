@@ -35,6 +35,7 @@
   self.textColor = UIColor.blackColor;
   self.textShadowColor = UIColor.whiteColor;
   self.rightFont = self.font;
+  self.underlineColor = [UIColor colorWithWhite:0.87 alpha:1];
 
   // default underline
   self.underlineType = MGUnderlineBottom;
@@ -483,6 +484,14 @@
   }
 }
 
+- (void)setUnderlineColor:(UIColor *)underlineColor {
+  _underlineColor = underlineColor;
+  if (_solidUnderline) {
+    _solidUnderline.backgroundColor = _underlineColor.CGColor;
+  }
+}
+
+
 - (void)setTextColor:(UIColor *)textColor {
   _textColor = textColor;
   for (UILabel *label in self.subviews) {
@@ -526,7 +535,7 @@
   }
   _solidUnderline = CALayer.layer;
   _solidUnderline.frame = CGRectMake(0, 0, self.width, 2);
-  _solidUnderline.backgroundColor = [UIColor colorWithWhite:0.87 alpha:1].CGColor;
+  _solidUnderline.backgroundColor = _underlineColor.CGColor;
   CALayer *bot = CALayer.layer;
   bot.frame = CGRectMake(0, 1, self.frame.size.width, 1);
   bot.backgroundColor = UIColor.whiteColor.CGColor;
