@@ -193,6 +193,23 @@
     self.width = needed > self.width ? needed : self.width;
   }
 
+//    // change height as needed
+//    CGFloat needed = 0;
+//    for (int i = 0; i < self.leftItems.count; i++) {
+//        UIView *view = self.leftItems[i];
+//        if ([self.dontFit indexOfObject:view] != NSNotFound) {
+//            continue;
+//        }
+//        if ([view conformsToProtocol:@protocol(MGLayoutBox)]
+//            && [(id <MGLayoutBox>)view boxLayoutMode] == MGBoxLayoutAttached) {
+//            continue;
+//        }
+//        if ([view isKindOfClass:UILabel.class] && (view.height > needed)) {
+//            needed = view.height;
+//        }
+//    }
+//    self.height = needed + self.padding.top + self.padding.bottom;
+
   // lay out
   CGFloat x = self.leftPadding;
   int i;
