@@ -31,7 +31,7 @@
   self.dontFit = @[].mutableCopy;
 
   // fonts
-  self.font = [UIFont fontWithName:@"HelveticaNeue" size:16];
+  self.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:16];
   self.textColor = UIColor.blackColor;
   self.textShadowColor = UIColor.whiteColor;
   self.rightFont = self.font;
@@ -53,7 +53,7 @@
                 padding:(UIEdgeInsets)padding {
 
   // default font?
-  font = font ? font : [UIFont fontWithName:@"HelveticaNeue" size:14];
+  font = font ? font : [UIFont fontWithName:@"HelveticaNeue-Light" size:14];
 
   // make the label
   UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
