@@ -18,7 +18,7 @@
 @synthesize margin, topMargin, bottomMargin, leftMargin, rightMargin;
 @synthesize padding, topPadding, rightPadding, bottomPadding, leftPadding;
 @synthesize attachedTo, replacementFor, sizingMode;
-@synthesize fixedPosition, zIndex, layingOut;
+@synthesize fixedPosition, zIndex, layingOut, slideBoxesInFromEmpty;
 
 - (id)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
@@ -55,23 +55,6 @@
   }
 }
 
-#pragma mark - Interaction
-
-- (void)onControlEvent:(UIControlEvents)controlEvent do:(Block)handler {
-
-  // get all handlers for this control event
-  NSMutableArray *handlers = self.eventHandlers[@((int)controlEvent)];
-  if (!handlers) {
-    handlers = @[].mutableCopy;
-    self.eventHandlers[@((int)controlEvent)] = handlers;
-  }
-
-  // add the handler
-  MGBlockWrapper *wrapper = [MGBlockWrapper wrapperForBlock:handler];
-  [self addTarget:wrapper action:@selector(doit) forControlEvents:controlEvent];
-  [handlers addObject:wrapper];
-}
-
 #pragma mark - Getters
 
 - (NSMutableOrderedSet *)boxes {
@@ -104,13 +87,6 @@
     asyncQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
   }
   return asyncQueue;
-}
-
-- (NSMutableDictionary *)eventHandlers {
-  if (!_eventHandlers) {
-    _eventHandlers = @{ }.mutableCopy;
-  }
-  return _eventHandlers;
 }
 
 #pragma mark - Setters
