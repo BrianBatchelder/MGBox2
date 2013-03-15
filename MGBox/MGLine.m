@@ -492,6 +492,7 @@
 
         // single line
       } else {
+        label.size = [label.text sizeWithFont:label.font];
         if (used + label.width > limit) { // needs slimming
           label.width = limit - used;
         }
